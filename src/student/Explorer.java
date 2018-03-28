@@ -2,6 +2,9 @@ package student;
 
 import game.EscapeState;
 import game.ExplorationState;
+import game.NodeStatus;
+
+import java.util.*;
 
 public class Explorer {
 
@@ -36,8 +39,15 @@ public class Explorer {
      * @param state the information available at the current state
      */
     public void explore(ExplorationState state) {
-        //TODO:
+
+        while (state.getDistanceToTarget() != 0) {       // Explore keeps looping until distance to orb is 0
+
+        }
+        return;
     }
+
+
+
 
     /**
      * Escape from the cavern before the ceiling collapses, trying to collect as much
@@ -66,3 +76,4 @@ public class Explorer {
         //TODO: Escape from the cavern before time runs out
     }
 }
+
