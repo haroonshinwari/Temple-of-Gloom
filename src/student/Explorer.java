@@ -58,6 +58,8 @@ public class Explorer {
                     long nextMove = n.getId();
                     state.moveTo(nextMove);                                   // move to the next available neighbour
                     routeStack.add(nextMove);                                 //add the next move to the stack
+                    System.out.println("The next move is: " + nextMove);
+                    
             }
 
 
