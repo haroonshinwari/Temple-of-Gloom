@@ -45,8 +45,16 @@ public class Explorer {
 
         routeStack.add(state.getCurrentLocation());                //add the current node to the stack
 
-        while (state.getDistanceToTarget() != 0) {       // Explore keeps looping until distance to orb is 0
+        while (state.getDistanceToTarget() != 0) {       // Explore keeps looping until distance to orb is 0 and then returns
 
+        // add current tile to visited list, if it is not already in that list
+            if (!visitedTiles.contains(state.getCurrentLocation())) {
+                visitedTiles.add(state.getCurrentLocation());
+            }
+
+            
+
+        }
 
 
 
