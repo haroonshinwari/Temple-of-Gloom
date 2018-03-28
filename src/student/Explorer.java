@@ -57,6 +57,7 @@ public class Explorer {
                 if(!visitedTiles.contains(n.getId()));                        // if this neighbour has not been visited before
                     long nextMove = n.getId();
                     state.moveTo(nextMove);                                   // move to the next available neighbour
+                    routeStack.add(nextMove);                                 //add the next move to the stack
             }
 
 
