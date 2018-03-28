@@ -53,6 +53,8 @@ public class Explorer {
                 visitedTiles.add(state.getCurrentLocation());
             }
 
+            boolean x = true;
+
             List<NodeStatus> nodes = (ArrayList) state.getNeighbours();       // a list holding all neighbours of the current tile
             for(NodeStatus n:nodes) {                                         // loop through all the neighbours
                 if(!visitedTiles.contains(n.getId())){                        // if this neighbour has not been visited before
@@ -62,6 +64,10 @@ public class Explorer {
                     System.out.println("The next move is: " + nextMove);
                     break;
             }
+
+
+
+
 
 
 
