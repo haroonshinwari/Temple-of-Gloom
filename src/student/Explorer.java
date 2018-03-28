@@ -60,13 +60,14 @@ public class Explorer {
                 if (!visitedTiles.contains(n.getId())) {                        // if this neighbour has not been visited before
                     long nextMove = n.getId();
                     state.moveTo(nextMove);                                   // move to the next available neighbour
+                    x = false;
                     routeStack.add(nextMove);                                 //add the next move to the stack
                     System.out.println("The next move is: " + nextMove);
                     break;
                 }
             }
 
-            if (x = false) {
+            if (x == true) {
                 routeStack.pop();                                           // pop off the last current tile from stack
                 state.moveTo(routeStack.peek());                            //move one step back
                 System.out.println("Moving from stack one step back to: " + routeStack.peek());
@@ -74,15 +75,6 @@ public class Explorer {
 
         }
 
-
-
-
-
-
-
-
-
-        }
         return;
     }
 
