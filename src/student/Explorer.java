@@ -48,6 +48,7 @@ public class Explorer {
         while (state.getDistanceToTarget() != 0) {       // Explore keeps looping until distance to orb is 0 and then returns
 
         // add current tile to visited list, if it is not already in that list
+            System.out.println("START - current tile standing on is: " + state.getCurrentLocation());
             if (!visitedTiles.contains(state.getCurrentLocation())) {
                 visitedTiles.add(state.getCurrentLocation());
             }
@@ -61,7 +62,9 @@ public class Explorer {
                     System.out.println("The next move is: " + nextMove);
                     break;
             }
-            
+
+
+
 
 
 
