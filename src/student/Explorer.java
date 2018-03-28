@@ -65,8 +65,9 @@ public class Explorer {
                     break;
             }
 
-
-
+            if (x = false);
+                routeStack.pop();                                           // pop off the last current tile from stack
+                state.moveTo(routeStack.peek());                            //move one step back
 
 
 
