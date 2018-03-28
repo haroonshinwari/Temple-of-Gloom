@@ -52,7 +52,11 @@ public class Explorer {
                 visitedTiles.add(state.getCurrentLocation());
             }
 
-            
+            List<NodeStatus> nodes = (ArrayList) state.getNeighbours();       // a list holding all neighbours of the current tile
+
+
+
+
 
         }
 
