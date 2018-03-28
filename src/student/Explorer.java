@@ -54,14 +54,14 @@ public class Explorer {
 
             List<NodeStatus> nodes = (ArrayList) state.getNeighbours();       // a list holding all neighbours of the current tile
             for(NodeStatus n:nodes) {                                         // loop through all the neighbours
-                if(!visitedTiles.contains(n.getId()));                        // if this neighbour has not been visited before
+                if(!visitedTiles.contains(n.getId())){                        // if this neighbour has not been visited before
                     long nextMove = n.getId();
                     state.moveTo(nextMove);                                   // move to the next available neighbour
                     routeStack.add(nextMove);                                 //add the next move to the stack
                     System.out.println("The next move is: " + nextMove);
-                    
+                    break;
             }
-
+            
 
 
 
