@@ -8,6 +8,9 @@ import java.util.*;
 
 public class Explorer {
 
+    private Stack<Long> Route = new Stack<>();               // A stack keeping track of every move I make
+    private List<Long> visitedTiles = new ArrayList<>();     // A list keeping track of every tile(node) I visit
+
     /**
      * Explore the cavern, trying to find the orb in as few steps as possible.
      * Once you find the orb, you must return from the function in order to pick
