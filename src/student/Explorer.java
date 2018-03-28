@@ -8,7 +8,7 @@ import java.util.*;
 
 public class Explorer {
 
-    private Stack<Long> Route = new Stack<>();               // A stack keeping track of every move I make
+    private Stack<Long> routeStack = new Stack<>();               // A stack keeping track of every move I make
     private List<Long> visitedTiles = new ArrayList<>();     // A list keeping track of every tile(node) I visit
 
     /**
@@ -43,7 +43,18 @@ public class Explorer {
      */
     public void explore(ExplorationState state) {
 
+        routeStack.add(state.getCurrentLocation());                //add the current node to the stack
+
         while (state.getDistanceToTarget() != 0) {       // Explore keeps looping until distance to orb is 0
+
+
+
+
+
+
+
+
+
 
         }
         return;
