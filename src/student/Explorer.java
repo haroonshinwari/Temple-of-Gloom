@@ -54,9 +54,9 @@ public class Explorer {
 
             boolean newTile = false;
             List<NodeStatus> nodes = (ArrayList) state.getNeighbours();       // a list holding all neighbours of the current tile
+            long nextMove = 0;
 
-            
-            for(NodeStatus n:nodes) {                                         // loop through all the neighbours
+/*            for(NodeStatus n:nodes) {                                         // loop through all the neighbours
                 if (!visitedTiles.contains(n.getId())) {                        // if this neighbour has not been visited before
                     long nextMove = n.getId();
                     state.moveTo(nextMove);                                   // move to the next available neighbour
@@ -64,8 +64,15 @@ public class Explorer {
                     routeStack.add(nextMove);                                 //add the next move to the stack
                     break;
                 }
+            }*/
+
+            // if there is a neighbour, move the neighbour closest to the orb
+            if (newTile == true) {
+                state.moveTo(nextMove);
+                routeStack.add(nextMove);
             }
 
+            //if there are no new neighbours, move one step back
             if (newTile == false) {
                 routeStack.pop();                                           // pop off the last current tile from stack
                 state.moveTo(routeStack.peek());                            //move one step back
