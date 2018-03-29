@@ -61,7 +61,7 @@ public class GUI extends JFrame implements Constants {
         master.add(mazePanel, 1);
         master.add(options, 1);
         master.add(tileSelect, 1);
-        master.add(explorer, 2);
+        master.add(explorer,Integer.valueOf(1));
 
         //Display GUI
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
