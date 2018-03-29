@@ -64,7 +64,17 @@ public class Explorer {
             }
 
 
-            //
+            //if there is more than one neighbour, pick the closest one
+            if (nodes.size() > 1){
+                List<NodeStatus> tempneighbours = new ArrayList<>();
+                NodeStatus closest = tempneighbours.get(0);
+                for (NodeStatus n:nodes) {
+                    if (!visitedTiles.contains(n.getId())) {
+                        tempneighbours.add(n);
+                    }
+                }
+            }
+
 
 
             // if there is a neighbour, move the neighbour closest to the orb
