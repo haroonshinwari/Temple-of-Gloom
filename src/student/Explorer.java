@@ -67,12 +67,24 @@ public class Explorer {
             //if there is more than one neighbour, pick the closest one
             if (nodes.size() > 1){
                 List<NodeStatus> tempneighbours = new ArrayList<>();
-                NodeStatus closest = tempneighbours.get(0);
                 for (NodeStatus n:nodes) {
                     if (!visitedTiles.contains(n.getId())) {
                         tempneighbours.add(n);
                     }
                 }
+
+                if (!tempneighbours.isEmpty()){
+
+                    NodeStatus closest = tempneighbours.get(0);
+                    for (NodeStatus cn : tempneighbours){
+                        if (cn.getDistanceToTarget() < closest.getDistanceToTarget()){
+                            closest = cn;
+                        }
+                    }
+                    nextMove = closest.getId();
+                    newTile = true;
+                }
+
             }
 
 
