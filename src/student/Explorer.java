@@ -47,34 +47,30 @@ public class Explorer {
 
         while (state.getDistanceToTarget() != 0) {       // Explore keeps looping until distance to orb is 0 and then returns
 
-        // add current tile to visited list, if it is not already in that list
-            System.out.println("START - current tile standing on is: " + state.getCurrentLocation());
+            // add current tile to visited list, if it is not already in that list
             if (!visitedTiles.contains(state.getCurrentLocation())) {
                 visitedTiles.add(state.getCurrentLocation());
             }
 
-            boolean x = true;
-
+            boolean newTile = false;
             List<NodeStatus> nodes = (ArrayList) state.getNeighbours();       // a list holding all neighbours of the current tile
+
+            
             for(NodeStatus n:nodes) {                                         // loop through all the neighbours
                 if (!visitedTiles.contains(n.getId())) {                        // if this neighbour has not been visited before
                     long nextMove = n.getId();
                     state.moveTo(nextMove);                                   // move to the next available neighbour
-                    x = false;
+                    newTile = true;
                     routeStack.add(nextMove);                                 //add the next move to the stack
-                    System.out.println("The next move is: " + nextMove);
                     break;
                 }
             }
 
-            if (x == true) {
+            if (newTile == false) {
                 routeStack.pop();                                           // pop off the last current tile from stack
                 state.moveTo(routeStack.peek());                            //move one step back
-                System.out.println("Moving from stack one step back to: " + routeStack.peek());
             }
-
         }
-
         return;
     }
 
