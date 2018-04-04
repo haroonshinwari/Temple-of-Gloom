@@ -2,6 +2,7 @@ package student;
 
 import game.EscapeState;
 import game.ExplorationState;
+import game.Node;
 import game.NodeStatus;
 
 import java.util.*;
@@ -131,6 +132,19 @@ public class Explorer {
      * @param state the information available at the current state
      */
     public void escape(EscapeState state) {
+        HashMap<Node, Integer> totalDistance = new HashMap<>();
+        HashMap<Node, Node> previousNodes = new HashMap<>();
+        PriorityQueue<Node> MinPQ = new PriorityQueue<>();
+        HashSet<Node> visitedNodes = new HashSet<>();
+
+        
+
+
+
+
+
+
+
         //TODO: Escape from the cavern before time runs out
     }
 }
