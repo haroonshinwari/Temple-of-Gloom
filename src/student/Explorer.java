@@ -142,6 +142,17 @@ public class Explorer {
         totalDistance.put(orbPosition, 0);              //giving the original starting tile a path length of 0
         MinPQ.add(orbPosition);                        // adding original position to the Priority Queue
 
+        while (!MinPQ.isEmpty()) {
+            Node minNodeInPQ = MinPQ.poll();            // takes the first elemenet of the minPQ
+
+            Node exitNode = state.getExit();
+            if (minNodeInPQ.equals(exitNode)) {
+                break;
+            }
+
+
+        }
+
 
 
 
