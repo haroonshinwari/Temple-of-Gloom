@@ -179,10 +179,12 @@ public class Explorer {
         List<Node> escapeRoute = new ArrayList<>();
         Node h = state.getExit();
 
-        while(h != null);
-        escapeRoute.add(h);
-        h = previousNodes.get(h);
-
+        while (h != null) {
+            escapeRoute.add(h);
+            h = previousNodes.get(h);                           // collecting parent nodes from exit to orb location
+        }
+        Collections.reverse(escapeRoute);                       //reverse so the escape route is from orb to exit
+        escapeRoute.remove(0);                           // remove the initial position of Phillip Hammond
     }
 }
 
