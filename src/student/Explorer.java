@@ -172,7 +172,6 @@ public class Explorer {
                     if (currentDistance != 999999999 || distanceViaN < currentDistance) {
                         previousNodes.put(n, minNodeInPQ);
                     }
-
                 }
             }
         }
@@ -180,10 +179,9 @@ public class Explorer {
         List<Node> escapeRoute = new ArrayList<>();
         Node h = state.getExit();
 
-        
-
-
-
+        while(h != null);
+        escapeRoute.add(h);
+        h = previousNodes.get(h);
 
     }
 }
