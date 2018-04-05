@@ -129,8 +129,8 @@ public class Explorer {
      * @param state the information available at the current state
      */
     public void escape(EscapeState state) {
-        HashMap<Node, Integer> totalDistance = new HashMap<>();
-        HashMap<Node, Node> previousNodes = new HashMap<>();
+        Map<Node, Integer> totalDistance = new HashMap<>();
+        Map<Node, Node> previousNodes = new HashMap<>();
         PriorityQueue<Node> MinPQ = new PriorityQueue<>();
         HashSet<Node> visitedNodes = new HashSet<>();
 
@@ -138,6 +138,13 @@ public class Explorer {
 
         totalDistance.put(orbPosition, 0);              //giving the original starting tile a path length of 0
         MinPQ.add(orbPosition);                        // adding original position to the Priority Queue
+
+        for (Node allNodes : state.getVertices()) {
+            if (allNodes != orbPosition) {
+                totalDistance.put(allNodes, 99999999);
+            }
+
+        }
 
         while (!MinPQ.isEmpty()) {
             Node minNodeInPQ = MinPQ.poll();            // takes the first elemenet of the minPQ
@@ -155,18 +162,21 @@ public class Explorer {
                 Integer currentDistance = totalDistance.get(n);
             }
 
-            if (currentDistance != null) {
-                if () {
+                if (currentDistance != null) {
+
+                    if () {
                 }
-            }else {
-            }
 
-            if ( || ) {
+                }else {
+                }
 
-            }
+                if ( || ) {
+
+                }
 
             List<Node> escapeRoute = new ArrayList<>();
-            Node h = state.getExit()
+            Node h = state.getExit();
+
         }
 
 
