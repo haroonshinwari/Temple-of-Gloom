@@ -131,7 +131,7 @@ public class Explorer {
     public void escape(EscapeState state) {
         Map<Node, Integer> totalDistance = new HashMap<>();
         Map<Node, Node> previousNodes = new HashMap<>();
-        PriorityQueue<Node> MinPQ = new PriorityQueue<>();
+        List<Node> MinPQ = new ArrayList<>();
         HashSet<Node> visitedNodes = new HashSet<>();
 
         Node orbPosition = state.getCurrentNode();
@@ -139,15 +139,24 @@ public class Explorer {
         totalDistance.put(orbPosition, 0);              //giving the original starting tile a path length of 0
         MinPQ.add(orbPosition);                        // adding original position to the Priority Queue
 
-        for (Node allNodes : state.getVertices()) {
+        for (Node allNodes : state.getVertices()) {                 // giving all nodes a path lengeth of infinity
             if (allNodes != orbPosition) {
                 totalDistance.put(allNodes, 999999999);
             }
-
         }
 
         while (!MinPQ.isEmpty()) {
-            Node minNodeInPQ = MinPQ.poll();            // takes the first elemenet of the minPQ
+
+            Node smallest = MinPQ.get(0);
+            for (Node nn : MinPQ) {
+                if (totalDistance.get(nn) < totalDistance.get(smallest)) {
+                    smallest = nn;
+                }
+            }
+
+            MinPQ.remove(smallest);
+            visitedNodes.add(smallest);
+            Node minNodeInPQ = smallest;           // takes the minimum element from the minPQ list
 
             Node exitNode = state.getExit();            // exit node to escape the temple
             if (minNodeInPQ.equals(exitNode)) {
@@ -158,13 +167,13 @@ public class Explorer {
 
             for (Edge neighboursEdge : minNodeInPQ.getExits()) {
                 Node n = neighboursEdge.getOther(minNodeInPQ);         // returns node between the minPQ and edge
-                int distanceViaN = cumulativeWeight + neighboursEdge.length();
-                int currentDistance = totalDistance.get(n);
-
-                if (currentDistance != 999999999) {
-                    if (distanceViaN < currentDistance) {
-                        previousNodes.put(n, minNodeInPQ);
-                        totalDistance.put(n, distanceViaN);
+                if (!visitedNodes.contains(n)) {
+                    int distanceViaN = cumulativeWeight + neighboursEdge.length();
+                    int currentDistance = totalDistance.get(n);
+                    if (currentDistance != 999999999) {
+                        if (distanceViaN < currentDistance) {
+                            totalDistance.put(n, distanceViaN);
+                        }
                     } else {
                         totalDistance.put(n, distanceViaN);
                         MinPQ.add(n);
@@ -175,6 +184,7 @@ public class Explorer {
                 }
             }
         }
+
 
         List<Node> escapeRoute = new ArrayList<>();
         Node h = state.getExit();
