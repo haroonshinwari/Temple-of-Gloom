@@ -152,11 +152,21 @@ public class Explorer {
             for (Edge neighboursEdge : minNodeInPQ.getExits()) {
                 Node n = neighboursEdge.getOther(minNodeInPQ);         // returns node between the minPQ and edge
                 int distanceViaN = cumulativeWeight + neighboursEdge.length();
-                int currentDistance = totalDistance.get(n);
+                Integer currentDistance = totalDistance.get(n);
             }
 
-            
+            if (currentDistance != null) {
+                if () {
+                }
+            }else {
+            }
 
+            if ( || ) {
+
+            }
+
+            List<Node> escapeRoute = new ArrayList<>();
+            Node h = state.getExit()
         }
 
 
