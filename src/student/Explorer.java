@@ -137,6 +137,8 @@ public class Explorer {
         PriorityQueue<Node> MinPQ = new PriorityQueue<>();
         HashSet<Node> visitedNodes = new HashSet<>();
 
+        Node orbPosition = state.getCurrentNode();
+
         
 
 
@@ -144,8 +146,6 @@ public class Explorer {
 
 
 
-
-        //TODO: Escape from the cavern before time runs out
     }
 }
 
