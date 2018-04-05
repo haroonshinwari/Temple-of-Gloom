@@ -139,7 +139,8 @@ public class Explorer {
 
         Node orbPosition = state.getCurrentNode();
 
-        
+        totalDistance.put(orbPosition, 0);              //giving the original starting tile a path length of 0
+        MinPQ.add(orbPosition);                        // adding original position to the Priority Queue
 
 
 
