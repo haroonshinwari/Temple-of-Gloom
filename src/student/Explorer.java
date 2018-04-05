@@ -185,6 +185,14 @@ public class Explorer {
         }
         Collections.reverse(escapeRoute);                       //reverse so the escape route is from orb to exit
         escapeRoute.remove(0);                           // remove the initial position of Phillip Hammond
+
+        for (Node nextStep : escapeRoute) {
+            if (state.getCurrentNode().getTile().getGold() > 0) {
+                state.pickUpGold();
+            }
+            state.moveTo(nextStep);
+        }
+
     }
 }
 
