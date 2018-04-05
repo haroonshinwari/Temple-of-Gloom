@@ -1,9 +1,6 @@
 package student;
 
-import game.EscapeState;
-import game.ExplorationState;
-import game.Node;
-import game.NodeStatus;
+import game.*;
 
 import java.util.*;
 
@@ -145,11 +142,20 @@ public class Explorer {
         while (!MinPQ.isEmpty()) {
             Node minNodeInPQ = MinPQ.poll();            // takes the first elemenet of the minPQ
 
-            Node exitNode = state.getExit();
+            Node exitNode = state.getExit();            // exit node to escape the temple
             if (minNodeInPQ.equals(exitNode)) {
                 break;
             }
 
+            int cumulativeWeight = totalDistance.get(minNodeInPQ);
+
+            for (Edge neighboursEdge : minNodeInPQ.getExits()) {
+                Node n = neighboursEdge.getOther(minNodeInPQ);         // returns node between the minPQ and edge
+                int distanceViaN = cumulativeWeight + neighboursEdge.length();
+                int currentDistance = totalDistance.get(n);
+            }
+
+            
 
         }
 
