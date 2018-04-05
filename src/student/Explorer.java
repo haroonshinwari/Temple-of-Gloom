@@ -141,7 +141,7 @@ public class Explorer {
 
         for (Node allNodes : state.getVertices()) {
             if (allNodes != orbPosition) {
-                totalDistance.put(allNodes, 99999999);
+                totalDistance.put(allNodes, 999999999);
             }
 
         }
@@ -159,27 +159,28 @@ public class Explorer {
             for (Edge neighboursEdge : minNodeInPQ.getExits()) {
                 Node n = neighboursEdge.getOther(minNodeInPQ);         // returns node between the minPQ and edge
                 int distanceViaN = cumulativeWeight + neighboursEdge.length();
-                Integer currentDistance = totalDistance.get(n);
+                int currentDistance = totalDistance.get(n);
+
+                if (currentDistance != 999999999) {
+                    if (distanceViaN < currentDistance) {
+                        previousNodes.put(n, minNodeInPQ);
+                        totalDistance.put(n, distanceViaN);
+                    } else {
+                        totalDistance.put(n, distanceViaN);
+                        MinPQ.add(n);
+                    }
+                    if (currentDistance != 999999999 || distanceViaN < currentDistance) {
+                        previousNodes.put(n, minNodeInPQ);
+                    }
+
+                }
             }
-
-                if (currentDistance != null) {
-
-                    if () {
-                }
-
-                }else {
-                }
-
-                if ( || ) {
-
-                }
-
-            List<Node> escapeRoute = new ArrayList<>();
-            Node h = state.getExit();
-
         }
 
+        List<Node> escapeRoute = new ArrayList<>();
+        Node h = state.getExit();
 
+        
 
 
 
